@@ -58,7 +58,18 @@ GROUP BY m.movieId
 ORDER BY avg_rating DESC
 LIMIT 10;
 
--- Query the materialized view
+-- Create a materialized view that caches only ratings from the last 5 years
+CREATE MATERIALIZED VIEW recent_ratings AS
+SELECT r.userId, r.movieId, r.rating, r.timestamp
+FROM ratings r
+WHERE TO_TIMESTAMP(r.timestamp) >= NOW() - INTERVAL '5 years';
+
+-- Create an index to speed up queries on the materialized view
+CREATE INDEX idx_recent_ratings_movieId ON recent_ratings (movieId);
+CREATE INDEX idx_recent_ratings_userId ON recent_ratings (userId);
+-- Query the view
+SELECT * FROM recent_ratings LIMIT 10;
+-- Query the view
 SELECT * FROM popular_movies;
 
 REFRESH MATERIALIZED VIEW popular_movies;
