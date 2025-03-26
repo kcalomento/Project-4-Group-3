@@ -7,7 +7,7 @@ from surprise.model_selection import train_test_split
 from surprise import accuracy
 import streamlit as st
 import re
-
+# Dark mode aesthetic
 st.markdown("""
 <style>
 h1 {
