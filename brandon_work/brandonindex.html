@@ -1,0 +1,121 @@
+<section class="card mt-4 shadow-lg border-0" id="sql-caching">
+  <div class="card-body">
+    <h3 class="card-title text-primary fw-bold">
+      <i class="bi bi-speedometer2"></i> SQL Performance Optimization
+    </h3>
+    <p class="text-muted">We implemented advanced SQL caching and indexing strategies to supercharge query performance.</p>
+
+    <div class="row">
+      <!-- Materialized Views Section -->
+      <div class="col-md-6">
+        <h5 class="text-success fw-semibold"><i class="bi bi-bar-chart-line"></i> Materialized Views</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item d-flex justify-content-between align-items-center bg-light shadow-sm">
+            <strong>Popular Movies View:</strong> Caches top-rated movies
+            <span class="badge bg-gradient-success">⬇ 3s → 0.47s</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center bg-light shadow-sm">
+            <strong>Recent Ratings View:</strong> Caches ratings from the last 5 years
+            <span class="badge bg-gradient-success">⬇ 2.8s → 0.42s</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Optimization Techniques Section -->
+      <div class="col-md-6">
+        <h5 class="text-info fw-semibold"><i class="bi bi-tools"></i> Optimization Techniques</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item bg-light shadow-sm">
+            <i class="bi bi-lightning-charge-fill text-warning"></i> Materialized View Caching
+          </li>
+          <li class="list-group-item bg-light shadow-sm">
+            <i class="bi bi-database-fill text-primary"></i> Targeted Indexing
+          </li>
+          <li class="list-group-item bg-light shadow-sm">
+            <i class="bi bi-funnel-fill text-danger"></i> Time-based Data Filtering
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SQL Code Block -->
+    <div class="mt-4">
+      <h6 class="text-secondary"><i class="bi bi-code-slash"></i> Example Optimization Query</h6>
+      <pre class="p-3 rounded code-container">
+<code class="language-sql">
+-- Sample SQL Optimization Technique
+CREATE MATERIALIZED VIEW popular_movies AS
+SELECT m.movieId, m.title, AVG(r.rating) AS avg_rating
+FROM movies m
+JOIN ratings r ON m.movieId = r.movieId
+GROUP BY m.movieId
+ORDER BY avg_rating DESC
+LIMIT 10;
+</code>
+      </pre>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Card Styling */
+  .card {
+    border-radius: 12px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .card:hover {
+    transform: scale(1.02);
+  }
+
+  /* List Group Items */
+  .list-group-item {
+    border: none;
+    font-size: 1rem;
+    transition: background 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .list-group-item:hover {
+    background: rgba(0, 123, 255, 0.1);
+  }
+
+  /* Badge Styling */
+  .badge {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+
+  .bg-gradient-success {
+    background: linear-gradient(90deg, #28a745, #218838);
+    color: #fff;
+  }
+
+  /* Code Block Styling */
+  .code-container {
+    background: #1e1e1e;
+    color: #dcdcdc;
+    font-family: "Courier New", Courier, monospace;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    overflow-x: auto;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .code-container:hover {
+    transform: scale(1.01);
+  }
+
+  /* Subtle Icon Animations */
+  i {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  h5:hover i {
+    transform: rotate(-10deg);
+  }
+</style>
