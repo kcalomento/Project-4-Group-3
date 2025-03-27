@@ -1,6 +1,5 @@
 # Adding config.py file.
-cindy_api_keys.py
-
+update .gitignore
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
