@@ -14,7 +14,7 @@ The application integrates multiple components across data engineering, model de
 
 We extracted and cleaned movie ratings, metadata, and user tags from the MovieLens and TMDB datasets. The cleaned data was structured and loaded into a PostgreSQL database to support efficient model training and web querying. Dask was used to process larger datasets in parallel.
 
-- `data_cleaning.ipynb` – Data wrangling and preparation
+- `data_cleaning.ipynb` – Data caching and preparation
 - `movies.csv`, `tags_cleaned.csv`, `filtered_ratings.zip` – Clean datasets
 - `MoviesSql.sql`, `speedsql.sql` – SQL queries for PostgreSQL integration
 
@@ -30,6 +30,7 @@ Modeling steps included:
 - Confusion matrix and RMSE used for evaluation
 
 Key files:
+- final folder -> finalindex.html
 - `ml_model.html` – Technical overview of our modeling process
 - `ml_app.html` – Front-end app interface for recommendations
 
